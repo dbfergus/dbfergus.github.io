@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARK Program - Provider Partnership Opportunity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .logo {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .answer {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            margin-left: 40px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid #4CAF50;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.05) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .contact-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-title {
+            font-size: 1.1em;
+            color: #4CAF50;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .logo {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .question {
+                font-size: 1.2em;
+            }
+            
+            .answer {
+                font-size: 1em;
+                margin-left: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">✨ SPARK</div>
+            <div class="tagline">Shaping Pathways for Advancing Resourceful Kinder-professionals</div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="question">
+                    <div class="icon">?</div>
+                    What is SPARK?
+                </div>
+                <div class="answer">
+                    SPARK is an innovative <span class="highlight">registered apprenticeship program</span> designed to strengthen the early childhood education workforce in Forsyth County. We create debt-free pathways to ECE credentials while building a qualified, stable workforce for local childcare centers.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="question">
+                    <div class="icon">👥</div>
+                    Who do we serve?
+                </div>
+                <div class="answer">
+                    We serve <span class="highlight">high school students and young adults (18+)</span> interested in early childhood education careers, and <span class="highlight">childcare centers</span> seeking qualified, committed teaching staff. Our apprentices earn while they learn through structured workplace training and formal education.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="question">
+                    <div class="icon">📍</div>
+                    Where does SPARK operate?
+                </div>
+                <div class="answer">
+                    SPARK operates throughout <span class="highlight">Forsyth County, North Carolina</span>, with a focus on Place Matters communities. Partner childcare centers provide workplace learning opportunities while apprentices attend classes at Forsyth Tech Community College.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="question">
+                    <div class="icon">📅</div>
+                    When does the program start?
+                </div>
+                <div class="answer">
+                    Our first cohort launches <span class="highlight">January 2026</span> with 10 apprentices. The program runs for 2 years, combining 4,000 hours of workplace learning with 848 hours of related education leading to an Associate degree and CDA credential.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="question">
+                    <div class="icon">💡</div>
+                    Why partner with SPARK?
+                </div>
+                <div class="answer">
+                    Partnering with SPARK helps you develop a pipeline of qualified, committed ECE professionals while addressing the critical workforce shortage.
+                </div>
+                <div class="benefits">
+                    <div class="benefit-item">💰 <strong>Cost-effective training</strong> - We handle education costs and provide structured training</div>
+                    <div class="benefit-item">🎯 <strong>Dedicated workforce</strong> - Apprentices commit to 2+ years with your center</div>
+                    <div class="benefit-item">📈 <strong>Quality improvement</strong> - Well-trained staff enhance your program quality</div>
+                    <div class="benefit-item">🤝 <strong>Ongoing support</strong> - Mentorship training and coaching support provided</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="question">
+                    <div class="icon">🚀</div>
+                    How do we get started?
+                </div>
+                <div class="answer">
+                    Getting started is simple! Contact our Program Coordinator to discuss your center's needs, capacity, and interest. We'll work together to develop a partnership that benefits both your center and future ECE professionals.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="contact-card">
+                    <div class="contact-name">Je'Lisa Myers</div>
+                    <div class="contact-title">Career Pathways Success Coach</div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            jelisam@smartstart-fc.org
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            (336) 725-6011
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🏢</div>
+                            Smart Start of Forsyth County
+                        </div>
+                    </div>
+                    <button class="cta-button" onclick="window.location.href='mailto:jelisam@smartstart-fc.org?subject=SPARK%20Provider%20Partnership%20Interest&body=Hi%20Je%27Lisa%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20partnering%20with%20the%20SPARK%20program.%20Please%20contact%20me%20to%20discuss%20how%20our%20center%20can%20participate.%0A%0AThank%20you%21'">
+                        Let's Connect! 🌟
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
